@@ -12,6 +12,8 @@ xcuserdata
 kotlin-js-store
 
 ### APP ###
+--dbconfig.properties
+--app.properties
 package-lock.json
 shared*tgz
 cookie.json
