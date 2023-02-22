@@ -11,13 +11,11 @@ pluginManagement {
     }
 
     // https://kotlinlang.org/docs/releases.html#release-details
-    val kotlinVersion = kotlin_version ?: "1.8.20-Beta"
+    val kotlinVersion = kotlin_version ?: "1.9.0-dev-1777"
     // https://github.com/diffplug/spotless/tags
     val spotlessVersion = "6.11.0"
     // https://github.com/Kotlin/dokka/tags
     val dokkaVersions = "1.7.20"
-    // https://kotlinlang.org/docs/multiplatform.html
-    val multiplatformVersion = kotlin_version ?: "1.8.20-Beta"
     // https://github.com/mpetuska/npm-publish
     val npmPublishVersion = "3.0.3"
     // https://developer.android.com/studio/releases/gradle-plugin#updating-plugin
@@ -28,7 +26,7 @@ pluginManagement {
     plugins {
         kotlin("jvm") version kotlinVersion
         kotlin("android") version kotlinVersion
-        kotlin("multiplatform") version multiplatformVersion
+        kotlin("multiplatform") version kotlinVersion
         kotlin("plugin.serialization") version kotlinVersion
 
         id("com.google.dagger.hilt.android") version hiltVersion
@@ -48,6 +46,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
         kotlin_repo_url?.also { maven(it) }
     }
 
