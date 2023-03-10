@@ -11,7 +11,7 @@ pluginManagement {
     }
 
     // https://kotlinlang.org/docs/releases.html#release-details
-    val kotlinVersion = kotlin_version ?: "1.9.0-dev-1777"
+    val kotlinVersion = kotlin_version ?: "1.9.0-dev-3244"
     // https://github.com/diffplug/spotless/tags
     val spotlessVersion = "6.11.0"
     // https://github.com/Kotlin/dokka/tags
