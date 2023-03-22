@@ -4,6 +4,37 @@ pluginManagement {
         gradlePluginPortal()
         mavenCentral()
     }
+
+    // https://kotlinlang.org/docs/releases.html#release-details
+    val kotlinVersion = "1.7.20"
+    // https://github.com/diffplug/spotless/tags
+    val spotlessVersion = "6.11.0"
+    // https://github.com/Kotlin/dokka/tags
+    val dokkaVersions = "1.5.30"
+    // https://kotlinlang.org/docs/multiplatform.html
+    val multiplatformVersion = "1.7.10"
+    // https://github.com/mpetuska/npm-publish
+    val npmPublishVersion = "3.0.3"
+    // https://developer.android.com/studio/releases/gradle-plugin#updating-plugin
+    val androidVersion = "7.3.1"
+    // https://developer.android.com/training/dependency-injection/hilt-android
+    val hiltVersion = "2.44"
+
+    plugins {
+        kotlin("jvm") version kotlinVersion
+        kotlin("android") version kotlinVersion
+        kotlin("multiplatform") version multiplatformVersion
+        kotlin("plugin.serialization") version kotlinVersion
+
+        id("com.google.dagger.hilt.android") version hiltVersion
+        id("com.android.application") version androidVersion
+        id("com.android.library") version androidVersion
+        id("dev.petuska.npm.publish") version npmPublishVersion
+
+        // gradle
+        id("com.diffplug.spotless") version spotlessVersion
+        id("org.jetbrains.dokka") version dokkaVersions
+    }
 }
 
 dependencyResolutionManagement {
@@ -11,6 +42,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
+
     versionCatalogs {
         create("kmModule") {
             from(files("dependencies/libs.km.toml"))
