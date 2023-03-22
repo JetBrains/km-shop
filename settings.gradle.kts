@@ -1,18 +1,22 @@
 pluginManagement {
+    @Suppress("LocalVariableName") val kotlin_repo_url: String? by settings
+    @Suppress("LocalVariableName") val kotlin_version: String? by settings
+
     repositories {
         google()
         gradlePluginPortal()
         mavenCentral()
+        kotlin_repo_url?.also { maven(it) }
     }
 
     // https://kotlinlang.org/docs/releases.html#release-details
-    val kotlinVersion = "1.7.20"
+    val kotlinVersion = kotlin_version ?: "1.7.20"
     // https://github.com/diffplug/spotless/tags
     val spotlessVersion = "6.11.0"
     // https://github.com/Kotlin/dokka/tags
     val dokkaVersions = "1.5.30"
     // https://kotlinlang.org/docs/multiplatform.html
-    val multiplatformVersion = "1.7.10"
+    val multiplatformVersion = kotlin_version ?: "1.7.10"
     // https://github.com/mpetuska/npm-publish
     val npmPublishVersion = "3.0.3"
     // https://developer.android.com/studio/releases/gradle-plugin#updating-plugin
@@ -38,9 +42,12 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
+    @Suppress("LocalVariableName") val kotlin_repo_url: String? by settings
+
     repositories {
         google()
         mavenCentral()
+        kotlin_repo_url?.also { maven(it) }
     }
 
     versionCatalogs {
