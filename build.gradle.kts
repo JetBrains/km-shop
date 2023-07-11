@@ -8,7 +8,8 @@ plugins {
     // common
     kotlin("multiplatform").apply(false)
     kotlin("plugin.serialization").apply(false)
-    id("dev.petuska.npm.publish").apply(false)
+// Disabled until PR is merged and released https://github.com/mpetuska/npm-publish/pull/134
+//    id("dev.petuska.npm.publish").apply(false)
 
     // gradle
     id("com.diffplug.spotless")
