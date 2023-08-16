@@ -11,13 +11,14 @@ pluginManagement {
     }
 
     // https://kotlinlang.org/docs/releases.html#release-details
-    val kotlinVersion = kotlin_version ?: "1.9.0-dev-3244"
+    val kotlinVersion = kotlin_version ?: "1.9.30-dev-460"
+//    val kotlinVersion = kotlin_version ?: "1.9.0"
     // https://github.com/diffplug/spotless/tags
-    val spotlessVersion = "6.11.0"
+    val spotlessVersion = "6.20.0"
     // https://github.com/Kotlin/dokka/tags
     val dokkaVersions = "1.7.20"
     // https://github.com/mpetuska/npm-publish
-    val npmPublishVersion = "3.0.3"
+    val npmPublishVersion = "3.4.1"
     // https://developer.android.com/studio/releases/gradle-plugin#updating-plugin
     val androidVersion = "7.3.1"
     // https://developer.android.com/training/dependency-injection/hilt-android

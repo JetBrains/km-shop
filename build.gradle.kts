@@ -8,11 +8,10 @@ plugins {
     // common
     kotlin("multiplatform").apply(false)
     kotlin("plugin.serialization").apply(false)
-// Disabled until PR is merged and released https://github.com/mpetuska/npm-publish/pull/134
-//    id("dev.petuska.npm.publish").apply(false)
+    id("dev.petuska.npm.publish").apply(false)
 
     // gradle
-    id("com.diffplug.spotless")
+//    id("com.diffplug.spotless")
     id("org.jetbrains.dokka")
 }
 
@@ -40,27 +39,27 @@ tasks.withType<org.jetbrains.dokka.gradle.DokkaMultiModuleTask>().configureEach 
 subprojects {
 
     apply(plugin = "org.jetbrains.dokka")
-    apply(plugin = "com.diffplug.spotless")
+//    apply(plugin = "com.diffplug.spotless")
 
-    spotless {
-        kotlin {
-            target("**/*.kt")
-            targetExclude("**/build/**")
-            ktlint("0.42.1")
-                .userData(
-                    mapOf(
-                        "disabled_rules" to "no-wildcard-imports",
-                    )
-                )
-            licenseHeaderFile("$rootDir/copyright.txt")
-        }
-        format("misc") {
-            target("**/*.gradle", "**/*.md", "**/.gitignore")
-            trimTrailingWhitespace()
-            indentWithSpaces()
-            endWithNewline()
-        }
-    }
+//    spotless {
+//        kotlin {
+//            target("**/*.kt")
+//            targetExclude("**/build/**")
+//            ktlint("0.50.0")
+//                .userData(
+//                    mapOf(
+//                        "disabled_rules" to "no-wildcard-imports",
+//                    )
+//                )
+//            licenseHeaderFile("$rootDir/copyright.txt")
+//        }
+//        format("misc") {
+//            target("**/*.gradle", "**/*.md", "**/.gitignore")
+//            trimTrailingWhitespace()
+//            indentWithSpaces()
+//            endWithNewline()
+//        }
+//    }
 
     tasks.withType<org.jetbrains.dokka.gradle.DokkaTaskPartial>().configureEach {
         suppressInheritedMembers.set(true)

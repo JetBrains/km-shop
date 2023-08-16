@@ -99,15 +99,15 @@ android {
     }
 }
 
-npmPublish {
-    packages {
-        named("js") {
-            packageJson {
-                version.set("0.0.1")
-            }
-        }
-    }
-}
+//npmPublish {
+//    packages {
+//        named("js") {
+//            packageJson {
+//                version.set("0.0.1")
+//            }
+//        }
+//    }
+//}
 
 rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin::class.java) {
     rootProject.the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension>().nodeVersion = "17.9.1"
