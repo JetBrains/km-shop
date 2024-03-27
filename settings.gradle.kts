@@ -11,7 +11,7 @@ pluginManagement {
     }
 
     // https://kotlinlang.org/docs/releases.html#release-details
-    val kotlinVersion = kotlin_version ?: "1.9.30-dev-460"
+    val kotlinVersion = kotlin_version ?: "1.9.20"
 //    val kotlinVersion = kotlin_version ?: "1.9.0"
     // https://github.com/diffplug/spotless/tags
     val spotlessVersion = "6.20.0"
@@ -73,7 +73,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "Shop"
 
-//include("shop:mobile:android")
+include("shop:mobile:android")
 //include("shop:server:cli")
 include("shop:server:api")
 //include("shop:pc:client")
