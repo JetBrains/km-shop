@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     // android
     id("com.google.dagger.hilt.android").apply(false)
@@ -70,4 +72,27 @@ subprojects {
             }
         }
     }
+    val kotlin_version: String? by project
+    kotlin_version?.also {
+        configurations.all {
+            resolutionStrategy.eachDependency {
+                if (requested.group == "androidx.compose.compiler" && requested.name == "compiler") {
+                    useTarget("org.jetbrains.kotlin:kotlin-compose-compiler-plugin-embeddable:$it")
+                    because("Temporary WA for compose compiler migration")
+                }
+            }
+        }
+        tasks.withType<KotlinCompile>().configureEach {
+            kotlinOptions {
+                freeCompilerArgs += listOf(
+                    "-P",
+                    "plugin:androidx.compose.compiler.plugins.kotlin:" +
+                            "suppressKotlinVersionCompatibilityCheck=$it",
+                    "-Xmetadata-version=1.8" //WA for compatibility with Hilt see
+                    // https://jetbrains.slack.com/archives/C04857B0BNE/p1688641699713959?thread_ts=1688639092.588919&cid=C04857B0BNE
+                )
+            }
+        }
+    }
+
 }
