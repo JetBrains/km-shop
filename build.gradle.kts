@@ -30,6 +30,7 @@ buildscript {
 
     dependencies {
         classpath("com.codingfeline.buildkonfig:buildkonfig-gradle-plugin:$buildkonfigVersion")
+        classpath("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.9.0")
     }
 }
 
