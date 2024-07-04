@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 import java.util.*
 
 plugins {
@@ -39,11 +40,22 @@ kotlin {
         }
     }
 
+    compilerOptions {
+        findProperty("kotlin_language_version")?.let {
+            println("Module: ${project.name}. Custom LV: $it")
+            languageVersion.set(KotlinVersion.fromVersion(it.toString()))
+        }
+
+        findProperty("kotlin_api_version")?.let {
+            println("Module: ${project.name}. Custom AV: $it")
+            apiVersion.set(KotlinVersion.fromVersion(it.toString()))
+        }
+    }
+
     sourceSets {
         all {
             languageSettings.apply {
                 optIn("kotlin.js.ExperimentalJsExport")
-                languageVersion = "2.0"
             }
         }
 
@@ -84,12 +96,6 @@ kotlin {
     }
 }
 
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask::class.java).configureEach {
-    compilerOptions {
-        languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_0)
-    }
-}
-
 android {
     namespace = "com.keygenqt.shop"
     compileSdk = findProperty("compileSdk").toString().toInt()
@@ -97,17 +103,21 @@ android {
         minSdk = findProperty("minSdk").toString().toInt()
         targetSdk = findProperty("targetSdk").toString().toInt()
     }
+    lint{
+        quiet = true
+        checkReleaseBuilds = false
+    }
 }
 
-//npmPublish {
-//    packages {
-//        named("js") {
-//            packageJson {
-//                version.set("0.0.1")
-//            }
-//        }
-//    }
-//}
+npmPublish {
+    packages {
+        named("js") {
+            packageJson {
+                version.set("0.0.1")
+            }
+        }
+    }
+}
 
 rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin::class.java) {
     rootProject.the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension>().nodeVersion = "17.9.1"
