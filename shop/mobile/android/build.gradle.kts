@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+
 plugins {
     id("com.android.application")
     id("com.google.dagger.hilt.android")
@@ -5,6 +7,20 @@ plugins {
     kotlin("android")
     kotlin("plugin.serialization")
     id("kotlin-parcelize")
+}
+
+kotlin{
+    compilerOptions {
+        findProperty("kotlin_language_version")?.let {
+            println("Module: ${project.name}. Custom LV: $it")
+            languageVersion.set(KotlinVersion.fromVersion(it.toString()))
+        }
+
+        findProperty("kotlin_api_version")?.let {
+            println("Module: ${project.name}. Custom AV: $it")
+            apiVersion.set(KotlinVersion.fromVersion(it.toString()))
+        }
+    }
 }
 
 android {

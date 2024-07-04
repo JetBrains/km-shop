@@ -15,8 +15,18 @@ application {
     mainClass.set("com.keygenqt.shop.api.ApplicationKt")
 }
 
-tasks.withType<KotlinCompile> {
-    compilerOptions.languageVersion.set(KotlinVersion.KOTLIN_2_0)
+kotlin{
+    compilerOptions {
+        findProperty("kotlin_language_version")?.let {
+            println("Module: ${project.name}. Custom LV: $it")
+            languageVersion.set(KotlinVersion.fromVersion(it.toString()))
+        }
+
+        findProperty("kotlin_api_version")?.let {
+            println("Module: ${project.name}. Custom AV: $it")
+            apiVersion.set(KotlinVersion.fromVersion(it.toString()))
+        }
+    }
 }
 
 dependencies {

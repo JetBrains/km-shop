@@ -18,7 +18,7 @@ pluginManagement {
     // https://github.com/Kotlin/dokka/tags
     val dokkaVersions = "1.7.20"
     // https://github.com/mpetuska/npm-publish
-    val npmPublishVersion = "3.4.1"
+    val npmPublishVersion = "3.4.3"
     // https://developer.android.com/studio/releases/gradle-plugin#updating-plugin
     val androidVersion = "7.3.1"
     // https://developer.android.com/training/dependency-injection/hilt-android
