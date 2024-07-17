@@ -41,13 +41,15 @@ kotlin {
     }
 
     compilerOptions {
-        findProperty("kotlin_language_version")?.let {
-            println("Module: ${project.name}. Custom LV: $it")
+        val customLanguageVersion = findProperty("kotlin_language_version")
+        println("Module: ${project.name}. Custom LanguageVersion: $customLanguageVersion")
+        customLanguageVersion?.let {
             languageVersion.set(KotlinVersion.fromVersion(it.toString()))
         }
 
-        findProperty("kotlin_api_version")?.let {
-            println("Module: ${project.name}. Custom AV: $it")
+        val customApiVersion = findProperty("kotlin_api_version")
+        println("Module: ${project.name}. Custom ApiVersion: $customApiVersion")
+        customApiVersion?.let {
             apiVersion.set(KotlinVersion.fromVersion(it.toString()))
         }
     }
@@ -103,7 +105,7 @@ android {
         minSdk = findProperty("minSdk").toString().toInt()
         targetSdk = findProperty("targetSdk").toString().toInt()
     }
-    lint{
+    lint {
         quiet = true
         checkReleaseBuilds = false
     }
