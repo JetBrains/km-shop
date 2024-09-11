@@ -19,7 +19,9 @@ target 'Shop' do
   # https://github.com/yonat/MultiSlider
   pod 'MultiSlider'
   # https://github.com/realm/realm-swift
-  pod 'RealmSwift'
+  # Fixed version to avoid "assumeIsolated(_:file:line:)' is only available in application extensions for iOS 17.0 or newer"
+  # on xcode less than 15.3
+  pod 'RealmSwift', '10.53.1'
   
   pod 'shared', :path => '../../../shared'
 end
