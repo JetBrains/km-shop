@@ -13,7 +13,7 @@ target 'Shop' do
   # https://github.com/nicklockwood/SwiftFormat
   pod 'SwiftFormat/CLI'
   # https://github.com/onevcat/Kingfisher
-  pod 'Kingfisher'
+  pod 'Kingfisher', '7.12.0'
   # https://github.com/SVGKit/SVGKit
   pod 'SVGKit'
   # https://github.com/yonat/MultiSlider
