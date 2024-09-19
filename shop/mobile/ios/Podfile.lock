@@ -1,0 +1,71 @@
+PODS:
+  - AlertToast (1.3.7)
+  - CocoaLumberjack (3.8.5):
+    - CocoaLumberjack/Core (= 3.8.5)
+  - CocoaLumberjack/Core (3.8.5)
+  - Kingfisher (7.12.0)
+  - lottie-ios (4.0.1)
+  - MultiSlider (2.1.8):
+    - SweeterSwift
+  - Realm (10.53.1):
+    - Realm/Headers (= 10.53.1)
+  - Realm/Headers (10.53.1)
+  - RealmSwift (10.53.1):
+    - Realm (= 10.53.1)
+  - shared (1.0)
+  - SVGKit (3.0.0):
+    - CocoaLumberjack (~> 3.0)
+  - SweeterSwift (1.2.5)
+  - SwiftFormat/CLI (0.54.0)
+  - SwiftGen (6.6.2)
+  - SwiftLint (0.55.1)
+
+DEPENDENCIES:
+  - AlertToast (= 1.3.7)
+  - Kingfisher (= 7.12.0)
+  - lottie-ios (= 4.0.1)
+  - MultiSlider
+  - RealmSwift (= 10.53.1)
+  - shared (from `../../../shared`)
+  - SVGKit
+  - SwiftFormat/CLI
+  - SwiftGen (= 6.6.2)
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - AlertToast
+    - CocoaLumberjack
+    - Kingfisher
+    - lottie-ios
+    - MultiSlider
+    - Realm
+    - RealmSwift
+    - SVGKit
+    - SweeterSwift
+    - SwiftFormat
+    - SwiftGen
+    - SwiftLint
+
+EXTERNAL SOURCES:
+  shared:
+    :path: "../../../shared"
+
+SPEC CHECKSUMS:
+  AlertToast: 8c9d5efb2df6ea728b32b62bce99d876ec3e5393
+  CocoaLumberjack: 6a459bc897d6d80bd1b8c78482ec7ad05dffc3f0
+  Kingfisher: 53a10ea35051a436b5fb626ca2dd8f3144d755e9
+  lottie-ios: 54d22edf55b839f0929cabbfe609c9aa548b1145
+  MultiSlider: 571b6dfe3e5053d353de53ab82202c6adaa600a9
+  Realm: 82e4ea18703bf240dd443b5ceef68d6f9454ec49
+  RealmSwift: 79a910911b6a5663b7570517c8237e3dbd2b0783
+  shared: 90ed35de669e9fcb63a61e6b4bb0521eb732cc7a
+  SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
+  SweeterSwift: 12f5b24e2410ea63e71f1ac089f8235eb5a12ecc
+  SwiftFormat: 0e0b577434e6aa63bc82a8905b40d9597b8452d4
+  SwiftGen: 1366a7f71aeef49954ca5a63ba4bef6b0f24138c
+  SwiftLint: 3fe909719babe5537c552ee8181c0031392be933
+
+PODFILE CHECKSUM: dc4c4486a99441935254b8a696988ca92c22e334
+
+COCOAPODS: 1.15.2
