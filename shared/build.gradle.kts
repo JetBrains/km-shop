@@ -22,7 +22,7 @@ kotlin {
     }
 
     js(IR) {
-        moduleName = "shared"
+        outputModuleName.set("shared")
         version = "0.0.1"
         nodejs()
         binaries.library()
@@ -122,5 +122,5 @@ npmPublish {
 }
 
 rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin::class.java) {
-    rootProject.the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension>().nodeVersion = "17.9.1"
+    rootProject.the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsEnvSpec>().version.set("17.9.1")
 }
