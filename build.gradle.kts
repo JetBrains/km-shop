@@ -84,14 +84,14 @@ subprojects {
             }
         }
         tasks.withType<KotlinCompile>().configureEach {
-            kotlinOptions {
-                freeCompilerArgs += listOf(
+            compilerOptions {
+                freeCompilerArgs.addAll(listOf(
                     "-P",
                     "plugin:androidx.compose.compiler.plugins.kotlin:" +
                             "suppressKotlinVersionCompatibilityCheck=$it",
                     "-Xmetadata-version=1.8" //WA for compatibility with Hilt see
                     // https://jetbrains.slack.com/archives/C04857B0BNE/p1688641699713959?thread_ts=1688639092.588919&cid=C04857B0BNE
-                )
+                ))
             }
         }
     }
