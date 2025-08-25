@@ -12,6 +12,8 @@ plugins {
     kotlin("plugin.serialization").apply(false)
     id("dev.petuska.npm.publish").apply(false)
 
+    id("com.github.johnrengelman.shadow") version "8.1.1"
+
     // gradle
 //    id("com.diffplug.spotless")
     id("org.jetbrains.dokka")
