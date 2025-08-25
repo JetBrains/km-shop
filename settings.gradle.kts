@@ -20,7 +20,7 @@ pluginManagement {
     // https://github.com/mpetuska/npm-publish
     val npmPublishVersion = "3.4.3"
     // https://developer.android.com/studio/releases/gradle-plugin#updating-plugin
-    val androidVersion = "7.3.1"
+    val androidVersion = "8.2.2"
     // https://developer.android.com/training/dependency-injection/hilt-android
     val hiltVersion = "2.44"
 
