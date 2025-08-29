@@ -11,6 +11,8 @@ plugins {
 
 kotlin{
     compilerOptions {
+
+        freeCompilerArgs.add("-Xopt-in=kotlin.RequiresOptIn")
         val customLanguageVersion = findProperty("kotlin_language_version")
         println("Module: ${project.name}. Custom LanguageVersion: $customLanguageVersion")
         customLanguageVersion?.let {
@@ -42,9 +44,10 @@ android {
         compose = true
     }
 
-    kotlinOptions {
-        freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
-    }
+
+//    kotlinOptions {
+//        freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
+//    }
 
     composeOptions {
         kotlinCompilerExtensionVersion = "1.3.2"
