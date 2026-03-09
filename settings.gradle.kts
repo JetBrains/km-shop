@@ -11,7 +11,7 @@ pluginManagement {
     }
 
     // https://kotlinlang.org/docs/releases.html#release-details
-    val kotlinVersion = kotlin_version ?: "1.9.20"
+    val kotlinVersion = kotlin_version ?: "2.3.10"
 //    val kotlinVersion = kotlin_version ?: "1.9.0"
     // https://github.com/diffplug/spotless/tags
     val spotlessVersion = "6.20.0"
@@ -20,14 +20,15 @@ pluginManagement {
     // https://github.com/mpetuska/npm-publish
     val npmPublishVersion = "3.4.3"
     // https://developer.android.com/studio/releases/gradle-plugin#updating-plugin
-    val androidVersion = "8.2.2"
+    val androidVersion = "8.5.2"
     // https://developer.android.com/training/dependency-injection/hilt-android
-    val hiltVersion = "2.44"
+    val hiltVersion = "2.57.1"
 
     plugins {
         kotlin("jvm") version kotlinVersion
         kotlin("android") version kotlinVersion
         kotlin("multiplatform") version kotlinVersion
+        kotlin("plugin.compose") version kotlinVersion
         kotlin("plugin.serialization") version kotlinVersion
 
         id("com.google.dagger.hilt.android") version hiltVersion

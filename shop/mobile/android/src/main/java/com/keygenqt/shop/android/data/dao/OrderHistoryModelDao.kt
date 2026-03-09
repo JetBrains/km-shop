@@ -32,11 +32,11 @@ interface OrderHistoryModelDao {
     fun getModels(): Flow<List<OrderHistoryModel>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertModels(vararg models: OrderHistoryModel)
+    fun insertModels(vararg models: OrderHistoryModel)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun updateModel(model: OrderHistoryModel)
+    fun updateModel(model: OrderHistoryModel)
 
     @Query("DELETE FROM OrderHistoryModel")
-    suspend fun clear()
+    fun clear()
 }

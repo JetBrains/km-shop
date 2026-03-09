@@ -32,8 +32,8 @@ interface CategoryModelDao {
     fun getModels(): Flow<List<CategoryModel>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertModels(vararg models: CategoryModel)
+    fun insertModels(vararg models: CategoryModel)
 
     @Query("DELETE FROM CategoryModel")
-    suspend fun clear()
+    fun clear()
 }

@@ -1,16 +1,19 @@
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     id("com.android.application")
     id("com.google.dagger.hilt.android")
     kotlin("kapt")
     kotlin("android")
+    kotlin("plugin.compose")
     kotlin("plugin.serialization")
     id("kotlin-parcelize")
 }
 
 kotlin{
     compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_17)
 
         freeCompilerArgs.add("-Xopt-in=kotlin.RequiresOptIn")
         val customLanguageVersion = findProperty("kotlin_language_version")
@@ -40,17 +43,14 @@ android {
         versionName = "0.9.0"
     }
 
-    buildFeatures {
-        compose = true
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
-
-//    kotlinOptions {
-//        freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
-//    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.3.2"
+    buildFeatures {
+        buildConfig = true
+        compose = true
     }
 
     buildTypes {
@@ -90,4 +90,11 @@ dependencies {
 //    } else {
 //        implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar", "*.aar"))))
 //    }
+}
+
+configurations.all {
+    resolutionStrategy {
+        val kotlin_version: String by project
+        force("org.jetbrains.kotlin:kotlin-metadata-jvm:$kotlin_version")
+    }
 }

@@ -32,8 +32,8 @@ interface CollectionModelDao {
     fun getModels(): Flow<List<CollectionModel>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertModels(vararg models: CollectionModel)
+    fun insertModels(vararg models: CollectionModel)
 
     @Query("DELETE FROM CollectionModel")
-    suspend fun clear()
+    fun clear()
 }

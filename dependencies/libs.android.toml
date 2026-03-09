@@ -16,7 +16,7 @@ hiltNavigationComposeVersion = "1.0.0"
 # https://github.com/google/accompanist/releases
 accompanistVersion = "0.28.0"
 # https://developer.android.com/training/dependency-injection/hilt-android
-hiltAndroidVersion = "2.44"
+hiltAndroidVersion = "2.57.1"
 # https://github.com/Kotlin/kotlinx.serialization/blob/master/formats/README.md#json
 jsonSerializationVersion="1.4.1"
 # https://developer.android.com/jetpack/androidx/releases/room

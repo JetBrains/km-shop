@@ -35,14 +35,14 @@ interface CartModelDao {
     fun getModel(id: Int): CartModel?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertModels(vararg models: CartModel)
+    fun insertModels(vararg models: CartModel)
 
     @Update
     fun updateModel(model: CartModel)
 
     @Query("DELETE FROM CartModel WHERE id=:id")
-    suspend fun delete(id: Int)
+    fun delete(id: Int)
 
     @Query("DELETE FROM CartModel")
-    suspend fun clear()
+    fun clear()
 }
