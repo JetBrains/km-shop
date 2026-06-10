@@ -1,17 +1,20 @@
 pluginManagement {
     @Suppress("LocalVariableName") val kotlin_repo_url: String? by settings
     @Suppress("LocalVariableName") val kotlin_version: String? by settings
+    val customKotlinRepoUrl = kotlin_repo_url
+    val customKotlinVersion = kotlin_version
 
     repositories {
         google()
         gradlePluginPortal()
         mavenCentral()
-        kotlin_repo_url?.also { maven(it) }
-        maven("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
+        if (!customKotlinRepoUrl.isNullOrEmpty() && !customKotlinVersion.isNullOrEmpty()) {
+            maven(customKotlinRepoUrl)
+        }
     }
 
     // https://kotlinlang.org/docs/releases.html#release-details
-    val kotlinVersion = kotlin_version ?: "2.3.10"
+    val kotlinVersion = customKotlinVersion ?: "2.3.10"
 //    val kotlinVersion = kotlin_version ?: "1.9.0"
     // https://github.com/diffplug/spotless/tags
     val spotlessVersion = "6.20.0"
@@ -44,12 +47,23 @@ pluginManagement {
 
 dependencyResolutionManagement {
     @Suppress("LocalVariableName") val kotlin_repo_url: String? by settings
+    @Suppress("LocalVariableName") val kotlin_version: String? by settings
+    val customKotlinRepoUrl = kotlin_repo_url
+    val customKotlinVersion = kotlin_version
 
     repositories {
         google()
         mavenCentral()
-        maven("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
-        kotlin_repo_url?.also { maven(it) }
+        if (!customKotlinRepoUrl.isNullOrEmpty() && !customKotlinVersion.isNullOrEmpty()) {
+            exclusiveContent {
+                forRepository {
+                    maven(customKotlinRepoUrl)
+                }
+                filter {
+                    includeVersionByRegex("org.jetbrains.kotlin.*", ".*", customKotlinVersion)
+                }
+            }
+        }
     }
 
     versionCatalogs {

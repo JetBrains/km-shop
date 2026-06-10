@@ -22,11 +22,23 @@ buildscript {
 
     // https://github.com/yshrsmz/BuildKonfig
     val buildkonfigVersion = "0.13.3"
+    val kotlinRepoUrl = project.findProperty("kotlin_repo_url") as String?
+    val kotlinVersion = project.findProperty("kotlin_version") as String?
 
     repositories {
         google()
         gradlePluginPortal()
         mavenCentral()
+        if (!kotlinRepoUrl.isNullOrEmpty() && !kotlinVersion.isNullOrEmpty()) {
+            exclusiveContent {
+                forRepository {
+                    maven(kotlinRepoUrl)
+                }
+                filter {
+                    includeVersionByRegex("org.jetbrains.kotlin*", ".*", kotlinVersion)
+                }
+            }
+        }
     }
 
     dependencies {
