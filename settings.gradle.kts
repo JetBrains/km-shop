@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.maven
+
 pluginManagement {
     @Suppress("LocalVariableName") val kotlin_repo_url: String? by settings
     @Suppress("LocalVariableName") val kotlin_version: String? by settings
@@ -9,7 +11,14 @@ pluginManagement {
         gradlePluginPortal()
         mavenCentral()
         if (!customKotlinRepoUrl.isNullOrEmpty() && !customKotlinVersion.isNullOrEmpty()) {
-            maven(customKotlinRepoUrl)
+            exclusiveContent {
+                forRepository {
+                    maven(customKotlinRepoUrl)
+                }
+                filter {
+                    includeVersionByRegex("org\\.jetbrains\\.kotlin.*", ".*", customKotlinVersion)
+                }
+            }
         }
     }
 
