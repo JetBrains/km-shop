@@ -29,8 +29,8 @@ pluginManagement {
     val spotlessVersion = "6.20.0"
     // https://github.com/Kotlin/dokka/tags
     val dokkaVersions = "1.7.20"
-    // https://github.com/mpetuska/npm-publish
-    val npmPublishVersion = "3.4.3"
+    // https://github.com/Kotlin/npm-publish
+    val npmPublishVersion = "3.7.0"
     // https://developer.android.com/studio/releases/gradle-plugin#updating-plugin
     val androidVersion = "8.5.2"
     // https://developer.android.com/training/dependency-injection/hilt-android
@@ -40,13 +40,13 @@ pluginManagement {
         kotlin("jvm") version kotlinVersion
         kotlin("android") version kotlinVersion
         kotlin("multiplatform") version kotlinVersion
+        kotlin("npm-publish") version npmPublishVersion
         kotlin("plugin.compose") version kotlinVersion
         kotlin("plugin.serialization") version kotlinVersion
 
         id("com.google.dagger.hilt.android") version hiltVersion
         id("com.android.application") version androidVersion
         id("com.android.library") version androidVersion
-        id("dev.petuska.npm.publish") version npmPublishVersion
 
         // gradle
         id("com.diffplug.spotless") version spotlessVersion

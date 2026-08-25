@@ -2,11 +2,11 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 import java.util.*
 
 plugins {
+    kotlin("npm-publish")
     kotlin("multiplatform")
     kotlin("native.cocoapods")
     kotlin("plugin.serialization")
     id("com.android.library")
-    id("dev.petuska.npm.publish")
 }
 
 kotlin {

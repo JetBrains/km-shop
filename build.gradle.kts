@@ -4,12 +4,12 @@ plugins {
     id("com.android.application").apply(false)
     id("com.android.library").apply(false)
     kotlin("android").apply(false)
+    kotlin("npm-publish").apply(false)
     kotlin("plugin.compose").apply(false)
 
     // common
     kotlin("multiplatform").apply(false)
     kotlin("plugin.serialization").apply(false)
-    id("dev.petuska.npm.publish").apply(false)
 
     id("com.github.johnrengelman.shadow") version "8.1.1"
 
