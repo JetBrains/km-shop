@@ -32,7 +32,7 @@ pluginManagement {
     // https://github.com/Kotlin/npm-publish
     val npmPublishVersion = "3.7.0"
     // https://developer.android.com/studio/releases/gradle-plugin#updating-plugin
-    val androidVersion = "8.5.2"
+    val androidVersion = "8.8.2"
     // https://developer.android.com/training/dependency-injection/hilt-android
     val hiltVersion = "2.57.1"
 
